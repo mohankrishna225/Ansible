@@ -1,0 +1,24 @@
+---  
+- hosts: localhost  
+  connection: local  
+  gather_facts: no    
+  vars:  
+     #your region  
+     region: ap-south-1
+     securitygroup: sg_webserver_apsydney
+     ami: ami-052c08d70def0ac62  
+  tasks:  
+    - name: EC2 basic provisioning  
+      ec2:
+        region: "{{ region }}"  
+        key_name: test 
+        instance_type: t2.micro  
+        image: "{{ ami }}"  
+        wait: yes    
+        group: "{{ securitygroup }}"
+        instance_tags:  
+          group: webserver  
+        exact_count: 3  
+        count_tag:  
+          group: webserver
+
