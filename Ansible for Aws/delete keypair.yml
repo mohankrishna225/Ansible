@@ -1,15 +1,17 @@
 --- 
-- 
+- hosts: localhost
   connection: local
-  ec2_key: 
-    name: "{{ keypair }}"
-    region: "{{ region }}"
-    state: absent
-  gather_facts: false
-  hosts: localhost
+  gather_facts: no
+  vars: 
+    keyname: mohan
+    region: us-east-1  
   tasks: 
     - 
       name: "remove key pair"
-  vars: 
-    keyname: mohan
-    region: us-east-1
+      ec2_key: 
+          name: "{{ keypair }}"
+          region: "{{ region }}"
+          state: absent
+  
+
+
