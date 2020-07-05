@@ -1,8 +1,3 @@
----
-
-
----
-
 <h4 id="install-ansible-for-linux">Install ansible for linux</h4>
 <ul>
 <li>sudo yum update -y</li>
