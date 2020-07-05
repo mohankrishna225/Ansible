@@ -1,0 +1,15 @@
+--- 
+- 
+  connection: local
+  ec2_key: 
+    name: "{{ keypair }}"
+    region: "{{ region }}"
+    state: absent
+  gather_facts: false
+  hosts: localhost
+  tasks: 
+    - 
+      name: "remove key pair"
+  vars: 
+    keyname: mohan
+    region: us-east-1
