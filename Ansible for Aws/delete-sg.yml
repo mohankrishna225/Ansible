@@ -1,0 +1,18 @@
+--- 
+- 
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  vars: 
+    region: ap-south-1
+    securitygroup: "launch-wizard-1"
+  tasks: 
+    - 
+      name: "remove security group"
+      ec2_group: 
+        name: "{{ securitygroup }}"
+        region: "{{ region }}"
+        state: absent
+      
+
+
